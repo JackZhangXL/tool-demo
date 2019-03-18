@@ -1,0 +1,7 @@
+{
+    "extends": "@dp/eslint-config-leonardo",
+    "rules": {
+        "import/no-unresolved": [2, { "ignore": ["^@dp|cortex\/.*$"] }],
+        "import/extensions": [2, { "^@dp|cortex\/.*$": "never" }]
+    }
+}
