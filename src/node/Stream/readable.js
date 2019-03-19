@@ -2,8 +2,8 @@ const fs = require("fs");
 const path = require("path");
 const crypto = require('crypto');
 
-const readable = fs.createReadStream(path.join(__dirname, '../tmp/data.txt'));
-const writable = fs.createWriteStream(path.join(__dirname, '../tmp/data2.txt'));
+const readable = fs.createReadStream(path.join(__dirname, '../../tmp/data.txt'));
+const writable = fs.createWriteStream(path.join(__dirname, '../../tmp/data2.txt'));
 
 // 读取一个文件，进行加密一下输出
 // const hash = crypto.createHash('sha1');

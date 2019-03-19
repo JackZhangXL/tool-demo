@@ -2,8 +2,8 @@ const fs = require("fs");
 const path = require("path");
 
 // 创建可读流
-const readable = fs.createReadStream(path.join(__dirname, '../tmp/data.txt'));
-const writable = fs.createWriteStream(path.join(__dirname, '../tmp/data2.txt'));
+const readable = fs.createReadStream(path.join(__dirname, '../../tmp/data.txt'));
+const writable = fs.createWriteStream(path.join(__dirname, '../../tmp/data2.txt'));
 
 // 向提供的可写流中写入数据一百万次
 // 注意背压（back-pressure）

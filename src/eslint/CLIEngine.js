@@ -1,26 +1,28 @@
 const glob = require("glob-promise");
 const fse = require("fs-extra");
 const path = require("path");
-const CLIEngineOld = require("eslint").CLIEngine;
+const CLIEngine = require("eslint").CLIEngine;
 
 const babelParser = require('@babel/parser');
-const traverse = require('@babel/traverse');
+const babelTraverse = require('@babel/traverse');
 const babelTypes = require('@babel/types');
-const generate = require('babel-generator');
+const babelGenerate = require('@babel/generator');
 
 const logTag = 'es5-check';
 
 const removeComments = (code) => {
     const ast = babelParser.parse(code);
-    traverse.default(ast, {
+
+    babelTraverse.default(ast, {
         enter(path) {
             babelTypes.removeComments(path.node);
         },
     });
-    return generate.default(ast).code;
+
+    return babelGenerate.default(ast).code;
 };
 
-const cli = new CLIEngineOld({
+const cli = new CLIEngine({
     useEslintrc: false,
     configFile: path.join(__dirname, 'es5-check.json')
     // rules: {
