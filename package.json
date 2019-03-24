@@ -22,7 +22,8 @@
     "inquirer": "^6.2.2",
     "listr": "^0.14.3",
     "rxjs": "^6.4.0",
-    "split": "^1.0.1"
+    "split": "^1.0.1",
+    "yargs": "^13.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
