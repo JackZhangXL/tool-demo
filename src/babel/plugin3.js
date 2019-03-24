@@ -1,11 +1,11 @@
 // 我们将 require.context('../mock-server/api', true, /\.js(on)?$/);
 // 装换成 (function () {});
 
-module.exports = function(babel) {
+module.exports = (babel) => {
     const t = babel.types;
-    return {
-        visitor: {
-            CallExpression: function(path, options) {
+    return {            // 插件返回的对象，需要有 visitor 属性
+        visitor: {      // visitor 中的每个方法，都有 path，options 这两个参数
+            CallExpression(path, options) {
                 const node = path.node;
                 const arguments = node.arguments;
                 const callee = node.callee;

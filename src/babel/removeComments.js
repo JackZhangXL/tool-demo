@@ -3,20 +3,20 @@ const glob = require("glob-promise");
 const fse = require("fs-extra");
 
 const babelParser = require('@babel/parser');
-const babelTraverse = require('@babel/traverse');
+const babelTraverse = require('@babel/traverse').default;
 const babelTypes = require('@babel/types');
-const babelGenerate = require('@babel/generator');
+const babelGenerate = require('@babel/generator').default;
 
 const removeComments = (code) => {
     const ast = babelParser.parse(code);
 
-    babelTraverse.default(ast, {
+    babelTraverse(ast, {
         enter(path) {
             babelTypes.removeComments(path.node);
         },
     });
 
-    return babelGenerate.default(ast).code;
+    return babelGenerate(ast).code;
 };
 
 const run = async() => {
