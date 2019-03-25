@@ -17,6 +17,7 @@ const checkFiles = async() => {
         const results = cli.executeOnFiles(files).results;
 
         results.forEach(result => {
+            console.log(result);
             if (result.errorCount > 0) {
                 errorMsg += `${result.filePath}:\n`;
                 errorMsg += result.messages.map(msg => {

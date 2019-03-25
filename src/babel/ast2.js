@@ -14,22 +14,22 @@ babelTraverse(ast, {
         const node = path.node;
 
         // 直观粗暴的方式：
-        if (node.type === 'VariableDeclaration' && node.declarations[0].id.name === 'a' && node.declarations[0].init.value === 1) {
-            node.declarations[0].init.value = 2;
-        } else if (node.type === 'VariableDeclaration' && node.declarations[0].id.name === 'b' && node.declarations[0].init.value === 2) {
-            node.declarations[0].init.value = 1;
-        }
-
-        // 上面这种方式太low，可以用 @babel/types 提供的工具方法
-        // if (babelTypes.isIdentifier(node, { name: 'a' })) {
-        //     if (babelTypes.isNumericLiteral(path.parent.init, { value: 1 })) {
-        //         path.parent.init.value = 2;
-        //     }
-        // } else if (babelTypes.isIdentifier(node, { name: 'b' })) {
-        //     if (babelTypes.isNumericLiteral(path.parent.init, { value: 2 })) {
-        //         path.parent.init.value = 1;
-        //     }
+        // if (node.type === 'VariableDeclaration' && node.declarations[0].id.name === 'a' && node.declarations[0].init.value === 1) {
+        //     node.declarations[0].init.value = 2;
+        // } else if (node.type === 'VariableDeclaration' && node.declarations[0].id.name === 'b' && node.declarations[0].init.value === 2) {
+        //     node.declarations[0].init.value = 1;
         // }
+
+        // // 上面这种方式太low，可以用 @babel/types 提供的工具方法
+        if (babelTypes.isIdentifier(node, { name: 'a' })) {
+            if (babelTypes.isNumericLiteral(path.parent.init, { value: 1 })) {
+                path.parent.init = babelTypes.numericLiteral(2);
+            }
+        } else if (babelTypes.isIdentifier(node, { name: 'b' })) {
+            if (babelTypes.isNumericLiteral(path.parent.init, { value: 2 })) {
+                path.parent.init = babelTypes.numericLiteral(1);
+            }
+        }
     }
 });
 const newCode = babelGenerate(ast).code;
