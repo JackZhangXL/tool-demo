@@ -127,6 +127,36 @@ const yargs = require('yargs');
 // node base.js cfg name jack      setting key:name value:jack
 
 
+// const argv = yargs
+//     .command('run <port> <guid>', 'run the server', yargs => {
+//         yargs.positional('guid', {
+//             describe: 'a unique identifier for the server',
+//             type: 'string'
+//         })
+//     }).argv;
+// console.log(argv);
+// node src/yargs/base.js run 8080 abcd
+// { _: [ 'run' ], '$0': 'src/yargs/base.js', port: 8080, guid: 'abcd' }
+
+
+// const argv = yargs
+//     .command('get <username|email> [password]', 'fetch a user by username or email.')
+//     .help()
+//     .argv;
+// console.log(argv);
+// node src/yargs/base.js get jack aaa
+// { _: [ 'get' ], '$0': 'src/yargs/base.js', username: 'jack', email: 'jack', password: 'aaa' }
+
+
+// const argv = yargs
+//     .command('download <url> [files..]', 'download several files')
+//     .help()
+//     .argv;
+// console.log(argv);
+// node src/yargs/base.js download www.abc.com  bb.js cc.png
+// { _: [ 'download' ], '$0': 'src/yargs/base.js', url: 'www.abc.com', files: [ 'bb.js', 'cc.png' ] }
+
+
 // const mwFunc1 = argv => console.log('第一个中间件');
 // const mwFunc2 = argv => console.log('第二个中间件');
 //
