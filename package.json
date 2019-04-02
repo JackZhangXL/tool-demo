@@ -22,9 +22,11 @@
     "inquirer": "^6.2.2",
     "listr": "^0.14.3",
     "rxjs": "^6.4.0",
+    "semver": "^6.0.0",
     "split": "^1.0.1",
     "update-notifier": "^2.5.0",
-    "yargs": "^13.2.2"
+    "yargs": "^13.2.2",
+    "yeoman-environment": "^2.3.4"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
