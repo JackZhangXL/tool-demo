@@ -37,6 +37,7 @@
     "@babel/generator": "^7.3.4",
     "@babel/parser": "^7.3.4",
     "@babel/traverse": "^7.3.4",
-    "@babel/types": "^7.3.4"
+    "@babel/types": "^7.3.4",
+    "webpack-chain": "^5.2.4"
   }
 }
