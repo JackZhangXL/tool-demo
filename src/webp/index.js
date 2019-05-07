@@ -1,38 +1,34 @@
-// 方式一
-function checkWebp(callback) {
-    var img = new Image();
-    img.onload = function () {
-        //通过图片宽度值判断图片是否可以显示
-        var result = (img.width > 0) && (img.height > 0);
-        callback(result);
-    };
-    img.onerror = function () {
-        callback(false);
-    };
-    img.src = 'data:image/webp;base64,UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA';
-}
+const fse = require('fs-extra');
+const path = require('path');
+const imagemin = require('imagemin');
+const imageminMozjpeg = require('imagemin-mozjpeg');
+const imageminPngquant = require('imagemin-pngquant');
+const imageminWebp = require('imagemin-webp');
 
-function showImage(useWebp){
-    var imgs = Array.from(document.querySelectorAll('img'));
+const srcDir = path.resolve(__dirname, '../tmp/images');
+const distDir = path.resolve(__dirname, '../tmp/build/images');
 
-    imgs.forEach(function(i){
-        var src = i.attributes['data-src'].value;
-        if (useWebp){
-            src = src.replace(/\.jpg$/, '.webp');
-        }
-        i.src = src;
+// 先清空文件夹，每次手删好麻烦~
+fse.emptyDir(distDir)
+    .then(() => {
+        console.log('empty success!');
+    })
+    .catch(err => {
+        console.error(err);
     });
-}
 
-checkWebp(showImage);
+(async() => {
+    await imagemin([`${srcDir}/*.{jpg,png}`], distDir, {
+        plugins: [
+            imageminMozjpeg({ quality: 70 }),
+            imageminPngquant({ quality: [0.6, 0.8] })
+        ]
+    });
 
-
-// 方式二
-// function checkWebp() {
-//     try{
-//         return(document.createElement_x('canvas').toDataURL('image/webp').indexOf('data:image/webp') == 0);
-//     }catch(err) {
-//         return false;
-//     }
-// }
-// console.log(checkWebp()); // true or false
+    await imagemin([`${distDir}/*.{jpg,png}`], distDir, {
+        use: [
+            imageminWebp({ quality: 50 })
+            // imageminWebp({lossless: true})    // 无损压缩
+        ]
+    });
+})();
