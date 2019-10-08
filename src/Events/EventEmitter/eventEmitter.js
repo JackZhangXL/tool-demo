@@ -68,7 +68,7 @@ class EventEmitter {
 
         if (!handler) {
             return null;
-        } else if (typeof handler === 'function') { // 如果 handler 是函数，说明目前只有一个监听者，现在要让 handler 变成数组
+        } else if (typeof handler === 'function') { // 如果 handler 是函数，说明目前只有一个监听者，直接删除
             this._events.delete(type, fn);
         } else if (Array.isArray(handler)) {        // 如果 handler 是数组，说明已经有多个监听者，移除相应的监听者
             let position = -1;
