@@ -1,0 +1,15 @@
+{
+    "success": true,
+    "message": "",
+    "code": 200,
+    "data": [
+        {
+            "value": 0,
+            "label": "数字1"
+        },
+        {
+            "value": 1,
+            "label": "数字2"
+        }
+    ]
+}

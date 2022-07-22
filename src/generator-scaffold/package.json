@@ -1,0 +1,22 @@
+{
+  "name": "generator-scaffold",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "files": [
+    "app"
+  ],
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "4.1.2",
+    "yeoman-generator": "^5.6.1"
+  },
+  "devDependencies": {}
+}

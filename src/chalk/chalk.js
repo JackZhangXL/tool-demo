@@ -1,7 +1,8 @@
 // https://github.com/chalk/chalk
 
 // 常见例子
-const chalk = require('chalk');
+import chalk from 'chalk';
+
 const log = console.log;
 
 log(chalk.blue('Hello') + ' World' + chalk.red('!'));            // 设颜色

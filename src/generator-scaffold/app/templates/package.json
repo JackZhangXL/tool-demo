@@ -1,0 +1,27 @@
+{
+    "private": true,
+    "name": "<%=appname%>",
+    "version": "0.0.0",
+    "description": "<%=description%>",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "dev": "node ./src/main.js"
+    },
+    "author": "<%=author%>",
+    "repository": {
+      "type": "git",
+      "url": "<%=repo%>"
+    },
+    "license": "MIT",
+    "engines": {
+      "node": ">=8"
+    },
+    "devDependencies": {
+      "babel-preset-react": "^6.24.1"
+    },
+    "dependencies": {
+      "react": "16.3.2",
+      "prop-types": "^15.6.1"
+    }
+  }
+  

@@ -5,6 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "type": "module",
   "author": {
     "name": "zhangxinlin"
   },
@@ -13,7 +14,7 @@
     "node": ">=8"
   },
   "dependencies": {
-    "chalk": "^2.4.2",
+    "chalk": "4.1.2",
     "eslint": "^5.15.1",
     "execa": "^1.0.0",
     "fs-extra": "^7.0.1",
