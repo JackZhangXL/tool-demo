@@ -50,6 +50,6 @@ g.on('abort', () => {
 });
 
 // 执行：
-// node src/rm-node-modules ~/codeDummy
-// node src/rm-node-modules ~/codeSample
-// node src/rm-node-modules ~/code/merchant
+// node src/rm-node-modules/index.cjs ~/codeDummy
+// node src/rm-node-modules/index.cjs ~/codeSample
+// node src/rm-node-modules/index.cjs ~/code/merchant
